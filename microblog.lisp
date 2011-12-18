@@ -163,6 +163,7 @@
 (make-handler (status)
   (let ((message (parameter "message")))
     (add-status message)
+    (save-statuses *statuses* "statuses")
     (redirect "/index")))
 
 (make-handler (style)
