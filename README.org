@@ -1,0 +1,51 @@
+microblog.lisp
+
+microblog.lisp is a very simple, single-user microblog engine I wrote
+in Common Lisp.  I have found microblogs to be a good way to keep
+notes and other information about my life, so I created this to have
+my own personal microblog.
+
+I originally created this program in Seaside in Pharo, but that
+started to really slow down my laptop if I left it running for a
+while.  I wasn't sure why, but I decided to rewrite the program in
+Common Lisp (using SBCL) after seeing that it was performing much
+better in my blog.lisp program.
+
+* Installation
+
+Right now I'm still hacking away on this, and haven't tried to run it
+anywhere but my personal laptop yet.  So I don't have good
+documentation for how to install and run it yet.  But if you install
+its dependencies (listed in the package definition, and probably with
+[[http://www.quicklisp.org/][Quicklisp]]) and read [[http://www.adampetersen.se/articles/lispweb.htm][these]] [[http://msnyder.info/posts/2011/07/lisp-for-the-web-part-ii/][two]] articles, you should be able to figure
+it out.
+
+I have also only tested and run this with SBCL.  Hopefully it's all
+standard Common Lisp, but I'm still new to it so I make no guarantees.
+
+* Contributing
+
+If you somehow found this project and think it's cool and want to
+either use it or show me something I've done wrong or add something to
+it, I'd love to hear from you.  You can email me at tsmall3@gmail.com
+or send me a pull request.
+
+* License
+
+Favicon is copyright Mark James and licensed under a Creative Commons
+Attribution 2.5 License. http://www.famfamfam.com/lab/icons/silk/
+
+Blog code is Copyright (c) 2011 Tom Small
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
