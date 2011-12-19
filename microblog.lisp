@@ -28,10 +28,8 @@
 ;;;
 ;;;   1) Start Slime in Emacs
 ;;;   2) Eval (ql:quickload '(:hunchentoot :cl-who :css-lite :split-sequence))
-;;;   3) Compile and load this file (C-x C-k)
-;;;   4) Eval (hunchentoot:start *acceptor*)
-;;;   5) Eval (in-package :microblog)
-;;;   6) Eval (setf *statuses* (load-statuses "statuses"))
+;;;   3) Compile and load this file (C-c C-k)
+;;;   4) Eval (microblog:init)
 
 (defpackage :microblog
   (:use :common-lisp :hunchentoot :cl-who :css-lite :split-sequence))
@@ -155,8 +153,7 @@
              (htm
               (:tr
                (:th
-                (fmt (humanize-date (status-date-created status)))
-                (:br)
+                (fmt (humanize-date (status-date-created status))) (:br)
                 (fmt (humanize-time (status-date-created status))))
                (:td (fmt (status-message status))))))))))
 
@@ -214,8 +211,14 @@
 
 ;;;; Web Server
 
-(defparameter *acceptor*
+(defparameter *microblog-acceptor*
   (make-instance 'hunchentoot:acceptor :port 9001))
 
-;; (hunchentoot:start *acceptor*)
-;; (hunchentoot:stop *acceptor*)
+;;;; Public interface
+
+(defun init ()
+  "Start the microblog."
+  (setf *statuses* (load-statuses "statuses"))
+  (hunchentoot:start *microblog-acceptor*))
+
+(export 'init)
