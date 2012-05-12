@@ -39,6 +39,7 @@
 ;;;; Model
 
 (defparameter *statuses* '())
+(defparameter *statuses-file-path* "~/Dropbox/statuses")
 
 (defclass status ()
   ((message      :reader status-message
@@ -160,7 +161,7 @@
 (make-handler (status)
   (let ((message (parameter "message")))
     (add-status message)
-    (save-statuses *statuses* "statuses")
+    (save-statuses *statuses* *statuses-file-path*)
     (redirect "/index")))
 
 (make-handler (style)
@@ -218,7 +219,7 @@
 
 (defun init ()
   "Start the microblog."
-  (setf *statuses* (load-statuses "statuses"))
+  (setf *statuses* (load-statuses *statuses-file-path*))
   (hunchentoot:start *microblog-acceptor*))
 
 (export 'init)
