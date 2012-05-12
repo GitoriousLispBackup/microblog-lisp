@@ -212,7 +212,7 @@
 ;;;; Web Server
 
 (defparameter *microblog-acceptor*
-  (make-instance 'hunchentoot:acceptor :port 9001))
+  (make-instance 'hunchentoot:easy-acceptor :port 9001))
 
 ;;;; Public interface
 
